@@ -5,7 +5,7 @@ use strict;
 use vars qw($VERSION @ISA %bodystrings);
 @ISA = qw();
 
-$VERSION = '0.01';
+$VERSION = '0.02';
 
 #my %bodystrings;
 my $labname = 'corolab';
@@ -28,7 +28,7 @@ sub new{
 	my $body =
 	$args{BODY} or croak "Need a BODY argument";
 
-	my @vars = @{$args{VARS}};
+	my @vars = @{$args{VARS}||[]};
 	unshift @vars, '$LABEL';
 
 	my $varlist = join ";\nmy ",@vars;
@@ -172,6 +172,10 @@ of a more object-oriented dispatch system rather than a clumsy hack.
 =head1 HISTORY
 
 =over 8
+
+=item 0.02
+
+VARS is now optional
 
 =item 0.01
 

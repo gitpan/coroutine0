@@ -1,16 +1,15 @@
-coroutine0 version 0.01
+coroutine0 version 0.02
 =======================
 
-The README is used to introduce the module and provide instructions on
-how to install the module, any machine dependencies it may have (for
-example C compilers and installed libraries) and any other information
-that should be provided before the module is installed.
+For the purposes of this module, a coroutine is considered to be a subroutine that
+maintains its state and execution position between calls to it.  To return from
+a coroutine but start up where you left off, use C<YIELD> instead of C<return> to
+send a result back to the caller.
 
-A README file is required for CPAN modules since CPAN extracts the
-README file from a module distribution so that people browsing the
-archive can use it get an idea of the modules uses. It is usually a
-good idea to provide version information here so that people can
-decide whether fixes for the module are worth downloading.
+The coroutine declaration syntax leaves much to be desired.  The 0 is suffixed to
+the module name so the coroutine module, when it finally appears, will not have
+to support this clunky code-in-string-paired-with-BODY-keyword syntax.
+
 
 INSTALLATION
 
@@ -21,17 +20,9 @@ To install this module type the following:
    make test
    make install
 
-DEPENDENCIES
-
-This module requires these other modules and libraries:
-
-  blah blah blah
-
 COPYRIGHT AND LICENCE
 
-Put the correct copyright and licence information here.
-
-Copyright (C) 2003 david
+Copyright (C) 2002,2003 david nicol
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself. 
